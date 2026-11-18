@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Mum💛</title>
+<style>
+body{margin:0;font-family:Georgia,serif;background:#FFF8E7;text-align:center;color:#4A1A1A;overflow-x:hidden}
+.hero{padding:50px 20px;background:linear-gradient(135deg,#6B1D2A,#8E2F3D,#C9A227);color:white;position:relative;overflow:hidden}
+.hero h1{font-size:34px;margin:0;line-height:1.2;animation:pop 1s ease}
+.hero p{color:#F5D67B}
+.card{background:white;margin:20px;padding:25px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.12)}
+button{background:#C9A227;color:white;border:none;padding:15px 30px;border-radius:30px;font-size:17px;cursor:pointer;animation:bounce 1.5s infinite;box-shadow:0 5px 15px rgba(201,162,39,0.5)}
+
+.hidden{display:none}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes pop{0%{transform:scale(0.5);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes fadeUp{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes float{0%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-15px) rotate(5deg)}100%{transform:translateY(0) rotate(-5deg)}}
+@keyframes fall{0%{transform:translateY(-10vh) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(360deg);opacity:0}}
+@keyframes rise{0%{transform:translateY(0)}100%{transform:translateY(-450px)}}
+.balloon{position:absolute;font-size:45px;animation:float 3s ease-in-out infinite}
+.b1{left:10px;top:20px}.b2{right:10px;top:40px;animation-delay:0.5s}.b3{left:20px;bottom:10px;animation-delay:1s}.b4{right:20px;bottom:10px;animation-delay:1.2s}
+.confetti-piece{position:fixed;top:-20px;width:10px;height:18px;z-index:999;animation:fall linear forwards;pointer-events:none;border-radius:2px}
+.envelope-big{font-size:70px;animation:float 2s infinite;display:inline-block}
+.cake{font-size:50px;animation:bounce 1.2s infinite;display:inline-block}
+#gameArea{position:relative;height:350px;background:#FFF0F5;border:2px dashed #C9A227;border-radius:20px;overflow:hidden;margin-top:15px}
+.game-balloon{position:absolute;font-size:42px;cursor:pointer;animation:rise 4s linear forwards;user-select:none}
+#scoreBoard{font-size:20px;font-weight:bold;color:#6B1D2A;margin:10px 0}
+.game-btn{background:#6B1D2A;animation:none}
+.music-btn{background:#6B1D2A;animation:bounce 1.5s infinite;margin:5px}
+.sound-btn{background:white;color:#6B1D2A;border:2px solid #C9A227;animation:none;padding:8px 18px;font-size:14px}
+img{
+    width: 280px;
+    height: 280px;
+    object-fit:cover;
+    border-radius:30%;
+    border:5px solid #C9A227;
+    box-shadow: 0 8px 20px rgba(107,29,42,0.25);
+    margin-top: 15px;
+    display:block;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+video{
+    width:100%;
+    max-width: 560px;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 3px solid #C9A227;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    display: block;
+    margin: 15px auto;
+}
+
+
+/* ===== MAKE AM FINE FOR ANY DEVICE ===== */
+
+/* BEAR POP OUT - Base Style */
+#bearPop{
+  animation: bearJump 0.8s ease infinite;
+}
+@keyframes bearJump{
+  0%,100%{ transform: scale(1) translateY(0) rotate(-5deg); }
+  50%{ transform: scale(1.15) translateY(-15px) rotate(5deg); }
+}
+.bear-box{
+  background: #FFF0F5;
+  border: 2px dashed #C9A227;
+  border-radius: 20px;
+  padding: 15px;
+  margin-top: 15px;
+}
+.bear-emoji{
+  font-size: 90px;
+  line-height: 1;
+}
+
+/* For PHONE - small screen */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 26px;
+  }
+  .card {
+    margin: 12px;
+    padding: 18px;
+  }
+  img {
+    width: 200px;
+    height: 200px;
+  }
+  video {
+    max-width: 100%;
+  }
+  button {
+    padding: 12px 22px;
+    font-size: 15px;
+  }
+  #gameArea {
+    height: 300px;
+  }
+  .bear-emoji {
+    font-size: 70px;
+  }
+  .bear-box {
+    padding: 10px;
+  }
+}
+
+/* For TABLET - medium screen */
+@media (min-width: 601px) and (max-width: 900px) {
+  img {
+    width: 250px;
+    height: 250px;
+  }
+  .card {
+    margin: 20px 40px;
+  }
+  video {
+    max-width: 500px;
+  }
+  .bear-emoji {
+    font-size: 80px;
+  }
+}
+
+/* For LAPTOP / BIG SCREEN */
+@media (min-width: 901px) {
+  .card {
+    max-width: 700px;
+    margin: 20px auto;
+  }
+  .hero {
+    padding: 60px 20px;
+  }
+  img {
+    width: 280px;
+    height: 280px;
+  }
+  video {
+    max-width: 560px;
+  }
+  .bear-emoji {
+    font-size: 100px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div id="confettiBox"></div>
+
+<div class="hero">
+<span class="balloon b1">🎈</span><span class="balloon b2">🎈</span><span class="balloon b3">🎈</span><span class="balloon b4">🎈</span>
+<p>✨ A SPECIAL SURPRISE ✨</p>
+<h1>Happy Birthday<br>Mummyyyyyyy</h1>
+<p>December 5th • Our Queen 👑</p>
+<p id="countdown" style="font-size:18px;font-weight:bold"></p>
+<p>🎂 🎉 🎊</p>
+<button class="music-btn" onclick="playBirthdaySong()">🎵 Play Birthday Song 🎵</button><br>
+<button class="sound-btn" onclick="toggleSound()" id="soundBtn">🔊 Sound: ON</button>
+</div>
+
+<div class="card" id="envelope">
+<p class="envelope-big">💌</p>
+<h2>Tap to Open Your Surprise, Mummy!</h2>
+<p>Mummy, something special dey wait for you inside... 👇🏾</p>
+<button onclick="openCard()">Open Card 💛</button>
+<p style="margin-top:15px">🎈 💛 🎈 💛 🎈</p>
+</div>
+
+<div class="card hidden" id="mainCard">
+<p style="font-size:35px">🎉 ✨ 🎊 ✨ 🎉</p>
+<p class="cake">🎂</p>
+<h2 style="color:#6B1D2A">Happy Birthday, Mum!</h2>
+<p style="font-size:17px;line-height:1.6">Happy Birthday to the most beautiful soul I know. 💛<br><br>
+Mummy, you are grace, strength, and love in human form. Thank you for all your sacrifices, for all the prayers you prayed in secret, and for loving me even when I no understand.<br><br>
+On this special day, I pray God crowns your new age with favour, covers you with good health, and fills your heart with joy, peace, and laughter. You deserve to be celebrated today and every day.<br><br>
+I love you forever, my Queen. Happy Birthday, Mummyyyyyyy!</p>
+<p><b>— With all my love, your beloved daughterr 💛</b></p>
+<button onclick="playBirthdaySong()">🎵 Play Birthday Song Again 🎵</button>
+
+<h3>👑 Our Queen In All Her Glory 👑</h3>
+<img src="/mum pink.jpeg" alt="Mummy in pink">
+<p>💖 So beautiful in pink!</p>
+<img src="/mum green.jpeg" alt="Mummy in green">
+<p>💚 So elegant in green!</p>
+
+<h3 style="margin-top:30px">💛 Our Sweet Moment 💛</h3>
+<video controls src="/mum and i.mp4"></video>
+<p>Us laughing together — my favourite memory 🥹💛</p>
+
+<div style="margin-top:35px;border-top:2px dashed #C9A227;padding-top:20px">
+<h2>🎮 GAME TIME, MUMMY! 🎮</h2>
+<p><b>Pop Balloons For Mummy!</b><br>Tap the balloons as them dey fly up!<br>Pop 10 balloons to unlock your special blessing! 🎈</p>
+<div id="scoreBoard">Score: <span id="score">0</span> / 10 🎈</div>
+<button class="game-btn" onclick="startGame()" id="startBtn">Start Game ▶️</button>
+<div id="gameArea"></div>
+<p id="gameMsg" style="font-weight:bold;color:#6B1D2A;font-size:18px;margin-top:10px"></p>
+</div>
+<!-- 🧸 BEAR POP OUT -->
+<div id="bearPop" class="hidden bear-box">
+  <div class="bear-emoji">🧸</div>
+  <p style="font-size:20px;font-weight:bold;color:#6B1D2A;margin:5px 0">You did it, Mummy! 🎉</p>
+  <p style="margin:0">Your Teddy Bear loves you! 🧸💛<br>Tap Play Again to make am hide!</p>
+</div>
+
+<p style="margin-top:25px;font-size:18px"><b>You are loved. You are celebrated.<br>You are cherished. 👑</b></p>
+<button onclick="celebrateAgain()">Tap for More Confetti! 🎉</button>
+<p style="margin-top:15px">Made with love by Mitchelle 💛</p>
+</div>
+
+<script>
+let soundOn = true;
+let audioCtx = null;
+function getCtx(){
+  if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if(audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+function toggleSound(){
+  soundOn = !soundOn;
+  document.getElementById('soundBtn').innerText = soundOn ? "🔊 Sound: ON" : "🔇 Sound: OFF";
+  if(soundOn) playDing();
+}
+function playTone(freq, time, duration, type='sine', vol=0.15){
+  if(!soundOn) return;
+  try{
+    let ctx = getCtx();
+    let osc = ctx.createOscillator();
+    let gain = ctx.createGain();
+    osc.type = type; osc.frequency.value = freq;
+    gain.gain.setValueAtTime(vol, ctx.currentTime + time);
+    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + time + duration);
+    osc.connect(gain); gain.connect(ctx.destination);
+    osc.start(ctx.currentTime + time);
+    osc.stop(ctx.currentTime + time + duration);
+  }catch(e){}
+}
+function playDing(){ playTone(880,0,0.4,'sine',0.2); playTone(1320,0.15,0.5,'sine',0.15); }
+function playPop(){ playTone(500,0,0.08,'square',0.12); playTone(900,0.05,0.1,'sine',0.15); }
+function playWin(){ [523,659,784,1046].forEach((f,i)=>playTone(f,i*0.15,0.4,'triangle',0.2)); }
+function playBirthdaySong(){
+  if(!soundOn){ soundOn=true; document.getElementById('soundBtn').innerText="🔊 Sound: ON"; }
+  let notes = [262,262,294,262,349,330, 262,262,294,262,392,349, 262,262,523,440,349,330,294, 466,440,349,392,349];
+  let times = [0,0.4,0.8,1.2,1.6,2.0, 2.4,2.8,3.2,3.6,4.0,4.4, 4.8,5.2,5.6,6.0,6.4,6.8,7.2, 7.6,8.0,8.4,8.8,9.2];
+  notes.forEach((n,i)=>{ playTone(n, times[i], 0.45, 'triangle', 0.18); playTone(n*2, times[i], 0.3, 'sine', 0.05); });
+}
+
+function openCard(){
+  document.getElementById('envelope').style.display='none';
+  document.getElementById('mainCard').classList.remove('hidden');
+  window.scrollTo(0,0);
+  playDing();
+  startConfetti(80);
+}
+function celebrateAgain(){
+  startConfetti(120);
+  playWin();
+  alert("Happy Birthday Mummy! We love you! 🎉💛");
+}
+function startConfetti(amount){
+  let colors = ['#C9A227','#6B1D2A','#FF6B9D','#4CAF50','#FFD700','#FF8C42','#FFF8E7'];
+  for(let i=0;i<amount;i++){
+    let c = document.createElement('div');
+    c.className='confetti-piece';
+    c.style.left = Math.random()*100+'vw';
+    c.style.background = colors[Math.floor(Math.random()*colors.length)];
+    c.style.animationDuration = (Math.random()*2+2)+'s';
+    c.style.animationDelay = (Math.random()*0.5)+'s';
+    document.getElementById('confettiBox').appendChild(c);
+    setTimeout(()=>c.remove(),4000);
+  }
+}
+let score = 0;
+let gameOn = false;
+let gameInterval;
+let blessings = ["God bless you, Mummy! 💛","Long life & good health! 🙏","You go laugh plenty this year! 😂","Favour go follow you everywhere! ✨","You are the best Mummy ever! 👑","More money, more joy! 💰","Your children go make you proud! ❤️","Peace like river for your heart! 🕊️","This year go sweet pass honey! 🍯","We love you forever! 💛"];
+function startGame(){
+  score = 0; gameOn = true;
+  document.getElementById('score').innerText = score;
+  document.getElementById('gameMsg').innerText = "Go Mummy Go! Pop them! 🎈";
+  document.getElementById('startBtn').innerText = "Playing... 🎈";
+  document.getElementById('gameArea').innerHTML = "";
+  clearInterval(gameInterval);
+  gameInterval = setInterval(spawnBalloon, 700);
+  playDing();
+  document.getElementById('bearPop').classList.add('hidden');
+}
+function spawnBalloon(){
+  if(!gameOn) return;
+  let area = document.getElementById('gameArea');
+  let b = document.createElement('div');
+  b.className = 'game-balloon';
+  let emojis = ['🎈','🎈','🎈','💛','🎈','🎁','🎈'];
+  b.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+  b.style.left = Math.random()*85 + '%';
+  b.style.bottom = '0px';
+  b.onclick = function(){
+    score++;
+    document.getElementById('score').innerText = score;
+    b.innerText = '💥';
+    playPop();
+    setTimeout(()=>b.remove(),200);
+    startConfetti(10);
+    if(score >= 10){
+      gameOn = false;
+      clearInterval(gameInterval);
+      document.getElementById('gameMsg').innerHTML = "🎉 YOU WIN, MUMMY! 🎉<br>" + blessings[Math.floor(Math.random()*blessings.length)] + "<br><br>Tap Start to play again! 💛";
+      document.getElementById('startBtn').innerText = "Play Again ▶️";
+      startConfetti(100);
+      playWin();
+      setTimeout(playBirthdaySong, 800);
+      document.getElementById('bearPop').classList.remove('hidden');
+    }
+  };
+  area.appendChild(b);
+  setTimeout(()=>{ if(b.parentNode) b.remove(); }, 4000);
+}
+let target = new Date("Dec 5, 2026 00:00:00").getTime();
+setInterval(function(){
+  let now = new Date().getTime();
+  let diff = target - now;
+  let days = Math.floor(diff / (1000*60*60*24));
+  if(diff > 0){ document.getElementById('countdown').innerHTML = "⏳ " + days + " days to go! 🎈"; }
+  else { document.getElementById('countdown').innerHTML = "🎂 TODAY IS THE DAY! 🎂"; }
+},1000);
+setTimeout(()=>startConfetti(30),1000);
+</script>
+</body>
+</html>
